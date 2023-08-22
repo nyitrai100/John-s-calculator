@@ -2793,7 +2793,7 @@ let postcodeAndSavings = {
         }
     }, 2000);
     
-    document.getElementById("yourSaving").textContent = savingSum;
+    document.getElementById("yourSaving").textContent = "$" + savingSum  ;
 
     document.getElementById("calculateReset").addEventListener("click", function() {
       savingSum = 0; 
