@@ -1,6 +1,3 @@
-// document.getElementById("postcode").addEventListener("input", function() {
-//     calculateSavings();
-// });
 
 document.getElementById("propValue").addEventListener("input", function() {
     calculateSavings();
@@ -2732,44 +2729,6 @@ let postcodeAndSavings = {
         "0885": 0.77,
         "0886": 0.72,
 }; 
-
-
-// previous calculation with the calculation button starts, delete everything before the postcodeAndSAvings data to make this work.
-
-// document.getElementById("calculateButton").addEventListener("click", function() {
-// let userInputPostcode = document.getElementById("postcode").value;
-// let savingPercentage = postcodeAndSavings[userInputPostcode];
-
-
-// let txtHomeValue = parseInt(document.getElementById("propValue").value);
-// let savingSum= parseInt((savingPercentage/100) * txtHomeValue);
-// document.getElementById("yourSaving").textContent = savingSum;
-
-
-
-// if (isNaN(txtHomeValue) || txtHomeValue < 100000 || txtHomeValue > 500000000) {
-//         alert("Please enter a home value between 100,000 and 50,000,000");
-//         return;
-//       }
-  
-//       if (isNaN(userInputPostcode || userInputPostcode !== postcodeAndSavings) ) {
-//         alert("Please select a valid postcode");
-//         return;
-//       }
-
-//         if (isNaN(savingSum)){ 
-//         alert("please try again your calculation");
-//         return;
-// }
-
-// });
-
-// previous calculation finished
-
-
-
-
-   
     
     let userInputPostcode = document.getElementById("postcode").value;
     let savingPercentage = postcodeAndSavings[userInputPostcode];
