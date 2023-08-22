@@ -2789,7 +2789,7 @@ let postcodeAndSavings = {
                 if (isNaN(txtHomeValue) || txtHomeValue < 100000 || txtHomeValue > 500000000) {
                     alert("Please enter a home value between 100,000 and 50,000,000");
                 }
-            }, 10000);
+            }, 6000);
         }
     }, 2000);
     
