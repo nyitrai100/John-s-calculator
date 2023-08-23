@@ -81,7 +81,7 @@ select {
     border: none;
     font-size: 18px;
     cursor: pointer;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 #propValue, #postcode{
     background-color: white;
@@ -89,16 +89,27 @@ select {
     font-weight: bold;
     font-size: larger;
 }
-#yourSaving{
+#yourSaving, #yourSavingText{
     
     color: white;
     font-weight: bold;
-    font-size: larger;
     display: flex;
-    width: 67vw;
+    width: 100vw;
     justify-content: center;
-
+    
 }
+
+#yourSavingText{
+    margin-top: 50px;
+    font-size: 25px;
+}
+
+#yourSaving{
+    font-size: 50px;
+    color: white;
+}
+
+
 #inputSavingLabel{
     padding-top: 25px;
 }

@@ -2752,7 +2752,11 @@ let postcodeAndSavings = {
         }
     }, 2000);
     
-    document.getElementById("yourSaving").textContent = "$" + savingSum  ;
+    // document.getElementById("yourSaving").textContent = "Your Saving by our platform" + "$" + savingSum;
+    document.getElementById("yourSavingText").textContent = "Your Saving By Our Platform";
+    document.getElementById("yourSaving").textContent = "$" + savingSum;
+
+
 
     document.getElementById("calculateReset").addEventListener("click", function() {
       savingSum = 0; 
