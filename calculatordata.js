@@ -2730,41 +2730,6 @@ let postcodeAndSavings = {
         "0886": 0.72,
 }; 
     
-//     let userInputPostcode = document.getElementById("postcode").value;
-//     let savingPercentage = postcodeAndSavings[userInputPostcode];
-    
-//     let txtHomeValue = parseInt(document.getElementById("propValue").value);
-//     let savingSum = parseInt((savingPercentage / 100) * txtHomeValue);
-
-
-//     clearTimeout(inputTimeout);
-
-//     inputTimeout = setTimeout(function() {
-//         if (!postcodeAndSavings.hasOwnProperty(userInputPostcode)) {
-//             alert("Please select a valid postcode");
-//         } else {
-//             clearTimeout(inputTimeoutHomeValue);
-//             inputTimeoutHomeValue = setTimeout(function() {
-//                 if (isNaN(txtHomeValue) || txtHomeValue < 100000 || txtHomeValue > 500000000) {
-//                     alert("Please enter a home value between 100,000 and 50,000,000");
-//                 }
-//             }, 2000);
-//         }
-//     }, 2000);
-    
-//     // document.getElementById("yourSaving").textContent = "Your Saving by our platform" + "$" + savingSum;
-//     document.getElementById("yourSavingText").textContent = "Your Saving By Our Platform";
-//     document.getElementById("yourSaving").textContent = "$" + savingSum;
-
-
-
-//     document.getElementById("calculateReset").addEventListener("click", function() {
-//       savingSum = 0; 
-//       document.getElementById("yourSaving").textContent = savingSum;
-//   });
-// }
-
-
 let loadingCircle = document.getElementById("loadingCircle");
 let userInputPostcode = document.getElementById("postcode");
 let txtHomeValueInput = document.getElementById("propValue");
