@@ -2730,40 +2730,95 @@ let postcodeAndSavings = {
         "0886": 0.72,
 }; 
     
-    let userInputPostcode = document.getElementById("postcode").value;
-    let savingPercentage = postcodeAndSavings[userInputPostcode];
+//     let userInputPostcode = document.getElementById("postcode").value;
+//     let savingPercentage = postcodeAndSavings[userInputPostcode];
     
-    let txtHomeValue = parseInt(document.getElementById("propValue").value);
-    let savingSum = parseInt((savingPercentage / 100) * txtHomeValue);
+//     let txtHomeValue = parseInt(document.getElementById("propValue").value);
+//     let savingSum = parseInt((savingPercentage / 100) * txtHomeValue);
 
+
+//     clearTimeout(inputTimeout);
+
+//     inputTimeout = setTimeout(function() {
+//         if (!postcodeAndSavings.hasOwnProperty(userInputPostcode)) {
+//             alert("Please select a valid postcode");
+//         } else {
+//             clearTimeout(inputTimeoutHomeValue);
+//             inputTimeoutHomeValue = setTimeout(function() {
+//                 if (isNaN(txtHomeValue) || txtHomeValue < 100000 || txtHomeValue > 500000000) {
+//                     alert("Please enter a home value between 100,000 and 50,000,000");
+//                 }
+//             }, 2000);
+//         }
+//     }, 2000);
+    
+//     // document.getElementById("yourSaving").textContent = "Your Saving by our platform" + "$" + savingSum;
+//     document.getElementById("yourSavingText").textContent = "Your Saving By Our Platform";
+//     document.getElementById("yourSaving").textContent = "$" + savingSum;
+
+
+
+//     document.getElementById("calculateReset").addEventListener("click", function() {
+//       savingSum = 0; 
+//       document.getElementById("yourSaving").textContent = savingSum;
+//   });
+// }
+
+
+let loadingCircle = document.getElementById("loadingCircle");
+let userInputPostcode = document.getElementById("postcode");
+let txtHomeValueInput = document.getElementById("propValue");
+let yourSavingText = document.getElementById("yourSavingText");
+let yourSaving = document.getElementById("yourSaving");
+let inputTimeout;
+let inputTimeoutHomeValue;
+
+userInputPostcode.addEventListener("input", hideResults);
+txtHomeValueInput.addEventListener("input", hideResults);
+
+function hideResults() {
+    yourSavingText.style.display = "none";
+    yourSaving.style.display = "none";
+    loadingCircle.style.display = "block"; // Show loading circle
 
     clearTimeout(inputTimeout);
+    clearTimeout(inputTimeoutHomeValue);
 
     inputTimeout = setTimeout(function() {
-        if (!postcodeAndSavings.hasOwnProperty(userInputPostcode)) {
+        let userInputPostcodeValue = userInputPostcode.value;
+        let savingPercentage = postcodeAndSavings[userInputPostcodeValue];
+        let txtHomeValue = parseInt(txtHomeValueInput.value);
+        let savingSum = parseInt((savingPercentage / 100) * txtHomeValue);
+
+        if (!postcodeAndSavings.hasOwnProperty(userInputPostcodeValue)) {
             alert("Please select a valid postcode");
+            loadingCircle.style.display = "none"; 
+            // Hide loading circle
         } else {
-            clearTimeout(inputTimeoutHomeValue);
             inputTimeoutHomeValue = setTimeout(function() {
                 if (isNaN(txtHomeValue) || txtHomeValue < 100000 || txtHomeValue > 500000000) {
                     alert("Please enter a home value between 100,000 and 50,000,000");
+                    loadingCircle.style.display = "none"; // Hide loading circle
+                } else {
+                    loadingCircle.style.display = "none"; // Hide loading circle after calculation
+                    yourSavingText.style.display = "block";
+                    yourSaving.style.display = "block";
+                    yourSavingText.textContent = "Your Saving By Our Platform"; 
+                    yourSaving.textContent = "$" + savingSum;
                 }
             }, 2000);
         }
     }, 2000);
-    
-    // document.getElementById("yourSaving").textContent = "Your Saving by our platform" + "$" + savingSum;
-    document.getElementById("yourSavingText").textContent = "Your Saving By Our Platform";
-    document.getElementById("yourSaving").textContent = "$" + savingSum;
-
-
-
-    document.getElementById("calculateReset").addEventListener("click", function() {
-      savingSum = 0; 
-      document.getElementById("yourSaving").textContent = savingSum;
-  });
 }
 
+document.getElementById("calculateReset").addEventListener("click", function() {
+    yourSavingText.style.display = "none";
+    yourSaving.style.display = "none";
+    userInputPostcode.value = "";
+    txtHomeValueInput.value = "";
+    loadingCircle.style.display = "none";
+});
 
 
+}
 
